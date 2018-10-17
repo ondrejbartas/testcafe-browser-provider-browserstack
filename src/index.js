@@ -174,7 +174,7 @@ export default {
         capabilities.localIdentifier = connector.connectorInstance.localIdentifierFlag;
         capabilities.local           = true;
 
-        if (browserName === 'chrome' && process.env['BROWSERSTACK_CHROME_OPTIONS'];) {
+        if (browserName === 'chrome' && process.env['BROWSERSTACK_CHROME_OPTIONS'] && process.env['BROWSERSTACK_CHROME_OPTIONS'].length > 0) {
             capabilities.chromeOptions = { args: [process.env['BROWSERSTACK_CHROME_OPTIONS']] };
         }
 
