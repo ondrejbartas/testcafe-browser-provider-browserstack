@@ -174,6 +174,10 @@ export default {
         capabilities.localIdentifier = connector.connectorInstance.localIdentifierFlag;
         capabilities.local           = true;
 
+        if (browserName === 'chrome' && process.env['BROWSERSTACK_CHROME_OPTIONS'];) {
+            capabilities.chromeOptions = { args: [process.env['BROWSERSTACK_CHROME_OPTIONS']] };
+        }
+
         await this.backend.openBrowser(id, pageUrl, capabilities);
 
         this.setUserAgentMetaInfo(id, this.backend.getSessionUrl(id));
